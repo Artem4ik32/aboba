@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Додати нову піцу | Oderman Піцерія</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <header>
+        <h1>Додати нову піцу</h1>
+    </header>
+
+    <form method="POST">
+        <label for="name">Назва піци:</label><br>
+        <input type="text" id="name" name="name" required><br><br>
+
+        <label for="description">Опис:</label><br>
+        <input type="text" id="description" name="description" required><br><br>
+
+        <label for="price">Ціна (грн):</label><br>
+        <input type="number" id="price" name="price" step="0.01" required><br><br>
+
+        <button type="submit">Додати піцу</button>
+    </form>
+
+    <nav>
+        <a href="/menu">Переглянути меню</a>
+    </nav>
+</body>
+</html>

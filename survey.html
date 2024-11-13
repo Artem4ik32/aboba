@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Опитування | Oderman Піцерія</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <header>
+        <h1>Опитування: Яка страва подобається найбільше?</h1>
+    </header>
+
+    <form method="POST">
+        {% for pizza in pizzas %}
+        <div>
+            <input type="radio" id="{{ pizza.name }}" name="favorite_pizza" value="{{ pizza.name }}" required>
+            <label for="{{ pizza.name }}">{{ pizza.name }}</label>
+        </div>
+        {% endfor %}
+        <button type="submit">Відправити відповідь</button>
+    </form>
+
+    <nav>
+        <a href="/survey_results">Подивитися результати опитування</a>
+    </nav>
+</body>
+</html>

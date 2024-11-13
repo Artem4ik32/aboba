@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Меню | Oderman Піцерія</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <header>
+        <h1>Меню</h1>
+    </header>
+    
+    <nav>
+        <a href="{{ url_for('menu', sort='asc')}}">Сортувати за ціною (від дешевих до дорогих)</a>
+        <a href="{{ url_for('menu', sort='desc')}}">Сортувати за ціною (від дорогих до дешевих)</a>
+        <a href="{{ url_for('add_pizza')}}">Додати нову піцу</a>
+    </nav>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Назва піци</th>
+                <th>Інгредієнти</th>
+                <th>Ціна</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for item in menu_items %}
+            <tr>
+                <td>{{ item.name }}</td>
+                <td>{{ item.description }}</td>
+                <td>{{ item.price }} грн</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>
